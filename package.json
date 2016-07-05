@@ -1,0 +1,20 @@
+{
+  "name": "js-starter-workshop",
+  "version": "1.0.0",
+  "description": "* fork this repo * workshop here: [cs52.me/assignments/sa3](http://cs52.me/assignments/sa3)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manmeetsg/js-starter-workshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manmeetsg/js-starter-workshop/issues"
+  },
+  "homepage": "https://github.com/manmeetsg/js-starter-workshop#readme"
+}
