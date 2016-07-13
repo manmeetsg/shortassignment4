@@ -1,13 +1,46 @@
-import $ from 'jquery';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import SearchBar from './components/search_bar';
+import youtubeSearch from './youtube-api';
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
+import debounce from 'lodash.debounce';
 import './style.scss';
 
-let num = 1;
-setInterval(() => {
-  $('#main').html(`You've been on this page for ${num++} seconds.`);
-}, 1000);
 
-const colors = ['bisque', 'darkseagreen', 'white', 'lightsteelblue'];
-let index = 0;
-setInterval(() => {
-  $('body').css({ background: colors[index++ % 4] });
-}, 10000);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videos: [],
+      selectedVideo: null,
+    };
+    this.search = debounce(this.search, 300);
+    this.search('pixar');
+  }
+  search(text) {
+    youtubeSearch(text).then(videos => {
+      this.setState({
+        videos,
+        selectedVideo: videos[0],
+      });
+    });
+  }
+  render() {
+    let video = this.state.selectedVideo;
+    if (!video) {
+      return <div>Loading...</div>;
+    }
+    return (
+      <div>
+        <SearchBar onSearchChange={text => this.search(text)} />
+        <div id="video-section">
+          <VideoList onVideoSelect={selectedVideo => this.setState({ selectedVideo })} videos={this.state.videos} />
+          <VideoDetail video={video} />
+        </div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('main'));
