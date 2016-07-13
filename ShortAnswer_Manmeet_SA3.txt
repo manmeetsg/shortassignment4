@@ -1,3 +1,5 @@
 The environment we set up was one to allow for cleaner, smoother, and simpler web dev. First, we installed and used node package manager (npm) to manage all of the dependencies of our code. Next, we used webpack as a build tool that bundled all of our dependencies intelligently and allows for hot reloading so we can quickly see the changes we made to our webpage without haveing to refresh ourselves. We then used a webpack dev server instead of a python server to check our webpages on our local host at port 8080. We programmed in ES6, the newest version of javascript, and used Babel as a compiler, with eslint as a linter for syntax and other errors in Atom for javascript. We used SASS to handle our CSS for us and Surge to host and deploy our webpage. In essence, we created a less consolidated but equally functional integrated development environment (IDE) for streamlined web dev.
 
 I would like a bit more explanation as to why we would use the surge hosting over the ghpages host or a .me, and also what exactly babel does for us.
+
+I added a color change every 10 seconds by editing the CSS. Not sure if thats worth extra credit. Hopefully it is!
